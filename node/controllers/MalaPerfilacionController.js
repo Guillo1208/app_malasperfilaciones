@@ -20,7 +20,7 @@ export const updateMp = async (req, res) => {
       where: { id: req.params.id },
     });
     res.json({
-      message: "¡Resgistro actualizado exitosamente!",
+      message: "¡Registro actualizado exitosamente!",
     });
   } catch (error) {
     res.json({ message: error.message });
