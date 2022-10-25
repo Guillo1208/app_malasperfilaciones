@@ -13,6 +13,18 @@ export const getAllMp = async (req, res) => {
   }
 };
 
+//Mostrar un registro
+export const getMp = async (req, res) => {
+  try {
+    const malaperfilacion = await MalaPerfilacionModel.findAll({
+      where: { id: req.params.id },
+    });
+    res.json(malaperfilacion);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+};
+
 //Actualizar un registro
 export const updateMp = async (req, res) => {
   try {
