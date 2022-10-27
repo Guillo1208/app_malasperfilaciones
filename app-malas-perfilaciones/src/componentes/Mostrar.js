@@ -6,6 +6,7 @@ const URI = "http://localhost:8000/malaperfilacion/";
 
 const CompMostrar = () => {
   const [malas_perfilaciones, setMalas_Perfilaciones] = useState([]);
+
   useEffect(() => {
     getMala_Perfilacion();
   }, []);
@@ -27,6 +28,7 @@ const CompMostrar = () => {
             <table className="table">
               <thead className="table-primary">
                 <tr>
+                  <th>Gestion</th>
                   <th>CC_Cliente</th>
                   <th>CC_Asesor</th>
                   <th>Fecha</th>
@@ -38,6 +40,11 @@ const CompMostrar = () => {
               <tbody>
                 {malas_perfilaciones.map((mala_perfilacion) => (
                   <tr key={mala_perfilacion.id}>
+                    <td>
+                      {mala_perfilacion.estado && (
+                        <i className="fa-sharp fa-solid fa-circle-check"></i>
+                      )}
+                    </td>
                     <td>{mala_perfilacion.cc_cliente}</td>
                     <td>{mala_perfilacion.cc_asesor}</td>
                     <td>{mala_perfilacion.fecha_mp}</td>

@@ -19,7 +19,7 @@ export const getMp = async (req, res) => {
     const malaperfilacion = await MalaPerfilacionModel.findAll({
       where: { id: req.params.id },
     });
-    res.json(malaperfilacion);
+    res.json(malaperfilacion[0]);
   } catch (error) {
     res.json({ message: error.message });
   }

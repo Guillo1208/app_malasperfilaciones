@@ -1,3 +1,4 @@
+import "../App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -5,8 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 const URI = "http://localhost:8000/malaperfilacion/";
 
 const CompRechazar = () => {
-  const [estado, setEstado] = useState("RECHAZADA");
-  const [hallazgo, setHallazgo] = useState();
+  const estado = "Rechazada";
+  const [hallazgo, setHallazgo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -18,6 +19,7 @@ const CompRechazar = () => {
     });
     navigate("/");
   };
+
   const cancelar = (e) => {
     e.preventDefault();
     navigate("/");
@@ -34,16 +36,22 @@ const CompRechazar = () => {
   return (
     <>
       <header className="App-header">
-        <h3>Gestionar mala perfilacion</h3>
+        <h3>GESTIONAR MALAS PERFILACIONES</h3>
       </header>
       <div className="container">
         <form onSubmit={update}>
           <div className="mb-3">
-            <label className="form-label">Estado</label>
-            <label className="form-label">{estado}</label>
+            <label className="form-label">
+              <h2>Estado</h2>
+            </label>
+            <div className="estado">
+              <h3>{estado}</h3>
+            </div>
           </div>
           <div className="mb-3">
-            <label className="form-label">Hallazgo</label>
+            <label className="form-label">
+              <h2>Hallazgos</h2>
+            </label>
             <textarea
               value={hallazgo}
               onChange={(e) => setHallazgo(e.target.value)}
@@ -51,9 +59,11 @@ const CompRechazar = () => {
               className="form-control"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Guardar
-          </button>
+          {hallazgo && (
+            <button type="submit" className="btn btn-primary">
+              Guardar
+            </button>
+          )}
           <button onClick={cancelar} className="btn btn-danger">
             Cancelar
           </button>
