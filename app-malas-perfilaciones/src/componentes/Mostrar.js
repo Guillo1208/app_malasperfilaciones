@@ -51,6 +51,12 @@ const CompMostrar = () => {
                     <td>{mala_perfilacion.estado}</td>
                     <td>{mala_perfilacion.hallazgo}</td>
                     <td>
+                    <Link
+                        to={`/editaprobar/${mala_perfilacion.id}`}
+                        className="btn btn-primary"
+                      >
+                        Aprobar
+                      </Link>
                       <Link
                         to={
                           mala_perfilacion.cc_cliente !== 0 &&
@@ -63,12 +69,7 @@ const CompMostrar = () => {
                       >
                         Rechazar
                       </Link>
-                      <Link
-                        to={`/editaprobar/${mala_perfilacion.id}`}
-                        className="btn btn-primary"
-                      >
-                        Aprobar
-                      </Link>
+                  
                     </td>
                   </tr>
                 ))}

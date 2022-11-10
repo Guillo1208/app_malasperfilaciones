@@ -11,7 +11,7 @@ const CompAprobar = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const update = async (e) => {
+  const actualizar = async (e) => {
     e.preventDefault();
     await axios.put(URI + id, {
       estado: estado,
@@ -39,7 +39,7 @@ const CompAprobar = () => {
         <h3>GESTIONAR MALAS PERFILACIONES</h3>
       </header>
       <div className="container">
-        <form onSubmit={update}>
+        <form onSubmit={actualizar}>
           <div className="mb-3">
             <label className="form-label">
               <h2>Estado</h2>
